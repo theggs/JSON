@@ -94,7 +94,7 @@ def ld_bool_none(s, index):
     return spc, index + mv
 
 
-# 处理 int/fload
+# 处理 int/float
 def ld_num(s, index):
     result = ''
     isfloat = '.' in s
