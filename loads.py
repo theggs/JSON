@@ -59,11 +59,11 @@ def ld_lst(s, index):
 def ld_tpl(s, index):
     lst = []
     index += 1
-    while s[index] != ']':
+    while s[index] != ')':
         value, index = start_position(s, index)
         lst.append(value)
-        index = index_jump(s, index, ',', still=']')
-    index = index_jump(s, index, ']')
+        index = index_jump(s, index, ',', still=')')
+    index = index_jump(s, index, ')')
     return tuple(lst), index
 
 
@@ -97,10 +97,10 @@ def ld_bool_none(s, index):
 # 处理 int/float
 def ld_num(s, index):
     result = ''
-    isfloat = '.' in s
     while s[index] in '1234567890.':
             result += s[index]
             index += 1
+    isfloat = '.' in result
     if isfloat:
         return float(result), index
     else:
