@@ -100,6 +100,8 @@ def ld_num(s, index):
     while s[index] in '1234567890.':
             result += s[index]
             index += 1
+            if index == len(s):  # 处理 JSON 内容为纯 num 时末尾的 index
+                break
     isfloat = '.' in result
     if isfloat:
         return float(result), index
