@@ -7,7 +7,7 @@ def error(s, index):
 def start_position(s, index):
     dct = {
         '[': ld_lst,
-        '(': ld_tpl,
+        # '(': ld_tpl,  # tuple 会被生成为 array ，解释的时候会解释为 list 。故删除
         '{': ld_dct,
         '"': ld_str,
     }
@@ -56,15 +56,15 @@ def ld_lst(s, index):
 
 
 # 解析 tuple
-def ld_tpl(s, index):
-    lst = []
-    index += 1
-    while s[index] != ')':
-        value, index = start_position(s, index)
-        lst.append(value)
-        index = index_jump(s, index, ',', still=')')
-    index = index_jump(s, index, ')')
-    return tuple(lst), index
+# def ld_tpl(s, index):
+#     lst = []
+#     index += 1
+#     while s[index] != ')':
+#         value, index = start_position(s, index)
+#         lst.append(value)
+#         index = index_jump(s, index, ',', still=')')
+#     index = index_jump(s, index, ')')
+#     return tuple(lst), index
 
 
 # 解析 dict

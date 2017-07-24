@@ -5,7 +5,7 @@ def dumps(s):
 
     def dmp_tpl(obj):                   # 处理 tuple
         lst0 = [dumps(value) for value in obj]
-        return '(' + ', '.join(lst0) + ')'
+        return '[' + ', '.join(lst0) + ']'
 
     def dmp_dct(obj):                   # 处理 dict
         lst0 = [(dumps(key) + ': ' + dumps(value)) for key, value in obj.items()]
